@@ -5,15 +5,26 @@ using System.Runtime;
 
 namespace IntegerPartitions.Specs
 {
-    public class When_Partition_2
+    public class When_Partitioning_2
     {
         Establish context = () =>
         {
             input = 2;
-            expect = new List<List<long>>
+            expect = new Dictionary<long, List<List<long>>>
+            {
                 {
-                    new List<long>{ 2},
-                    new List<long>{ 1,1 }
+                    1, new List<List<long>>
+                    {
+                        new List<long>{ 1 }
+                    }
+                },
+                {
+                    2, new List<List<long>>
+                    {
+                        new List<long>{ 2},
+                        new List<long>{ 1,1 }
+                    }
+                }
             };
         };
 
@@ -21,7 +32,7 @@ namespace IntegerPartitions.Specs
 
         It Should_Return_Correct_Number_Of_Sets = () =>
         {
-            for (var i = 0; i < expect.Count; i++)
+            for (var i = 1; i <= expect.Count; i++)
             {
                 answer[i].Count.ShouldEqual(expect[i].Count);
                 for (var j = 0; j < expect[i].Count; j++)
@@ -33,7 +44,7 @@ namespace IntegerPartitions.Specs
 
         It Should_Return_Partitions_For_One_And_Two_And_Three = () =>
         {
-            for (var i = 0; i < expect.Count; i++)
+            for (var i = 1; i <= expect.Count; i++)
             {
                 for (var j = 0; j < expect[i].Count; j++)
                 {
@@ -48,20 +59,38 @@ namespace IntegerPartitions.Specs
         };
 
         private static int input;
-        private static List<List<long>> expect;
-        private static List<List<long>> answer;
+        private static Dictionary<long, List<List<long>>> expect;
+        private static Dictionary<long, List<List<long>>> answer;
     }
 
-    public class When_Partition_3
+    public class When_Partitioning_3
     {
         Establish context = () =>
         {
             input = 3;
-            expect = new List<List<long>>
+            expect = new Dictionary<long, List<List<long>>>
+            {
                 {
-                    new List<long>{ 3 },
-                    new List<long>{ 2,1 },
-                    new List<long>{ 1,1,1 }
+                    1, new List<List<long>>
+                    {
+                        new List<long>{ 1 }
+                    }
+                },
+                {
+                    2, new List<List<long>>
+                    {
+                        new List<long> { 2 },
+                        new List<long> { 1,1 }
+                    }
+                },
+                {
+                    3, new List<List<long>>
+                    {
+                        new List<long>{ 3 },
+                        new List<long>{ 2,1 },
+                        new List<long>{ 1,1,1 }
+                    }
+                }
             };
         };
 
@@ -69,7 +98,7 @@ namespace IntegerPartitions.Specs
 
         It Should_Return_Correct_Number_Of_Sets = () =>
         {
-            for (var i = 0; i < expect.Count; i++)
+            for (var i = 1; i <= expect.Count; i++)
             {
                 answer[i].Count.ShouldEqual(expect[i].Count);
                 for (var j = 0; j < expect[i].Count; j++)
@@ -81,7 +110,7 @@ namespace IntegerPartitions.Specs
 
         It Should_Return_Partitions_For_One_And_Two_And_Three = () =>
         {
-            for (var i = 0; i < expect.Count; i++)
+            for (var i = 1; i <= expect.Count; i++)
             {
                 for (var j = 0; j < expect[i].Count; j++)
                 {
@@ -96,22 +125,48 @@ namespace IntegerPartitions.Specs
         };
 
         private static int input;
-        private static List<List<long>> expect;
-        private static List<List<long>> answer;
+        private static Dictionary<long, List<List<long>>> expect;
+        private static Dictionary<long, List<List<long>>> answer;
     }
 
-    public class When_Partition_4
+    public class When_Partitioning_4
     {
         Establish context = () =>
         {
             input = 4;
-            expect = new List<List<long>>
+            expect = new Dictionary<long, List<List<long>>>
+            {
                 {
-                    new List<long>{ 4 },
-                    new List<long>{ 3,1 },
-                    new List<long>{ 2,1,1 },
-                    new List<long>{ 1,1,1,1 },
-                    new List<long>{ 2,2 },
+                    1, new List<List<long>>
+                    {
+                        new List<long>{ 1 }
+                    }
+                },
+                {
+                    2, new List<List<long>>
+                    {
+                        new List<long> { 2 },
+                        new List<long> { 1,1 }
+                    }
+                },
+                {
+                    3, new List<List<long>>
+                    {
+                        new List<long>{ 3 },
+                        new List<long>{ 2,1 },
+                        new List<long>{ 1,1,1 }
+                    }
+                },
+                {
+                    4, new List<List<long>>
+                    {
+                        new List<long>{ 4 },
+                        new List<long>{ 3,1 },
+                        new List<long>{ 2,1,1 },
+                        new List<long>{ 1,1,1,1 },
+                        new List<long>{ 2,2 },
+                    }
+                }
             };
         };
 
@@ -119,7 +174,7 @@ namespace IntegerPartitions.Specs
 
         It Should_Return_Partitions_For_One_And_Two_And_Three = () =>
         {
-            for (var i = 0; i < expect.Count; i++)
+            for (var i = 1; i <= expect.Count; i++)
             {
                 for (var j = 0; j < expect[i].Count; j++)
                 {
@@ -134,24 +189,60 @@ namespace IntegerPartitions.Specs
         };
 
         private static int input;
-        private static List<List<long>> expect;
-        private static List<List<long>> answer;
+        private static Dictionary<long, List<List<long>>> expect;
+        private static Dictionary<long, List<List<long>>> answer;
     }
 
-    public class When_Partition_5
+    public class When_Partitioning_5
     {
         Establish context = () =>
         {
             input = 5;
-            expect = new List<List<long>>
+            expect = new Dictionary<long, List<List<long>>>
             {
-                new List<long>{ 5 },
-                new List<long>{ 4,1 },
-                new List<long>{ 3,1,1 },
-                new List<long>{ 2,1,1,1 },
-                new List<long>{ 1,1,1,1,1 },
-                new List<long>{ 2,2,1 },
-                new List<long>{ 3,2 },
+                {
+                    1, new List<List<long>>
+                    {
+                        new List<long>{ 1 }
+                    }
+                },
+                {
+                    2, new List<List<long>>
+                    {
+                        new List<long> { 2 },
+                        new List<long> { 1,1 }
+                    }
+                },
+                {
+                    3, new List<List<long>>
+                    {
+                        new List<long>{ 3 },
+                        new List<long>{ 2,1 },
+                        new List<long>{ 1,1,1 }
+                    }
+                },
+                {
+                    4, new List<List<long>>
+                    {
+                        new List<long>{ 4 },
+                        new List<long>{ 3,1 },
+                        new List<long>{ 2,1,1 },
+                        new List<long>{ 1,1,1,1 },
+                        new List<long>{ 2,2 },
+                    }
+                },
+                {
+                    5, new List<List<long>>
+                    {
+                        new List<long>{ 5 },
+                        new List<long>{ 4,1 },
+                        new List<long>{ 3,1,1 },
+                        new List<long>{ 2,1,1,1 },
+                        new List<long>{ 1,1,1,1,1 },
+                        new List<long>{ 2,2,1 },
+                        new List<long>{ 3,2 },
+                    }
+                }
             };
         };
 
@@ -159,43 +250,95 @@ namespace IntegerPartitions.Specs
 
         It Should_Return_Partitions_For_One_And_Two_And_Three = () =>
         {
-            for (var i = 0; i < expect.Count; i++)
+            for (var i = 1; i <= expect.Count; i++)
             {
                 for (var j = 0; j < expect[i].Count; j++)
                 {
-                    if (answer[i][j] != expect[i][j] || j == expect[i].Count - 1)
+                    for (var k = 0; k < expect[i][j].Count; k++)
                     {
-                        var ans = answer[i][j];
-                        var exp = expect[i][j];
+                        if (answer[i][j][k] != expect[i][j][k] || j == expect[i][k].Count - 1)
+                        {
+                            var ans = answer[i][j][k];
+                            var exp = expect[i][j][k];
+                        }
+                        answer[i][j][k].ShouldEqual(expect[i][j][k]);
+
                     }
-                    answer[i][j].ShouldEqual(expect[i][j]);
                 }
             }
         };
 
         private static int input;
-        private static List<List<long>> expect;
-        private static List<List<long>> answer;
+        private static Dictionary<long, List<List<long>>> expect;
+        private static Dictionary<long, List<List<long>>> answer;
     }
 
-    public class When_Partition_6
+    public class When_Partitioning_6
     {
         Establish context = () =>
         {
             input = 6;
-            expect = new List<List<long>>
+            expect = new Dictionary<long, List<List<long>>>
             {
-                new List<long>{ 6 },
-                new List<long>{ 5,1 },
-                new List<long>{ 4,1,1},
-                new List<long>{ 3,1,1,1 },
-                new List<long>{ 2,1,1,1,1 },
-                new List<long>{ 1,1,1,1,1,1 },
-                new List<long>{ 2,2,1,1 },
-                new List<long>{ 3,2,1 },
-                new List<long>{ 4,2 },
-                new List<long>{ 2,2,2 },
-                new List<long>{ 3,3 },
+                {
+                    1, new List<List<long>>
+                    {
+                        new List<long>{ 1 }
+                    }
+                },
+                {
+                    2, new List<List<long>>
+                    {
+                        new List<long> { 2 },
+                        new List<long> { 1,1 }
+                    }
+                },
+                {
+                    3, new List<List<long>>
+                    {
+                        new List<long>{ 3 },
+                        new List<long>{ 2,1 },
+                        new List<long>{ 1,1,1 }
+                    }
+                },
+                {
+                    4, new List<List<long>>
+                    {
+                        new List<long>{ 4 },
+                        new List<long>{ 3,1 },
+                        new List<long>{ 2,1,1 },
+                        new List<long>{ 1,1,1,1 },
+                        new List<long>{ 2,2 },
+                    }
+                },
+                {
+                    5, new List<List<long>>
+                    {
+                        new List<long>{ 5 },
+                        new List<long>{ 4,1 },
+                        new List<long>{ 3,1,1 },
+                        new List<long>{ 2,1,1,1 },
+                        new List<long>{ 1,1,1,1,1 },
+                        new List<long>{ 2,2,1 },
+                        new List<long>{ 3,2 },
+                    }
+                },
+                {
+                    6, new List<List<long>>
+                    {
+                        new List<long>{ 6 },
+                        new List<long>{ 5,1 },
+                        new List<long>{ 4,1,1},
+                        new List<long>{ 3,1,1,1 },
+                        new List<long>{ 2,1,1,1,1 },
+                        new List<long>{ 1,1,1,1,1,1 },
+                        new List<long>{ 2,2,1,1 },
+                        new List<long>{ 3,2,1 },
+                        new List<long>{ 4,2 },
+                        new List<long>{ 2,2,2 },
+                        new List<long>{ 3,3 },
+                    }
+                }
             };
         };
 
@@ -203,23 +346,27 @@ namespace IntegerPartitions.Specs
 
         It Should_Return_Partitions_For_One_And_Two_And_Three = () =>
         {
-            for (var i = 0; i < expect.Count; i++)
+            for (var i = 1; i <= expect.Count; i++)
             {
                 for (var j = 0; j < expect[i].Count; j++)
                 {
-                    if (answer[i][j] != expect[i][j] || j == expect[i].Count - 1)
+                    for (var k = 0; k < expect[i][j].Count; k++)
                     {
-                        var ans = answer[i][j];
-                        var exp = expect[i][j];
+                        if (answer[i][j][k] != expect[i][j][k] || j == expect[i][j].Count - 1)
+                        {
+                            var ans = answer[i][j][k];
+                            var exp = expect[i][j][k];
+                        }
+                        answer[i][j][k].ShouldEqual(expect[i][j][k]);
+
                     }
-                    answer[i][j].ShouldEqual(expect[i][j]);
                 }
             }
         };
 
         private static int input;
-        private static List<List<long>> expect;
-        private static List<List<long>> answer;
+        private static Dictionary<long, List<List<long>>> expect;
+        private static Dictionary<long, List<List<long>>> answer;
     }
 
     public class When_Updating_Partition_Set_For_3
@@ -228,7 +375,7 @@ namespace IntegerPartitions.Specs
         {
             set = new Dictionary<long, List<List<long>>>
             {
-                { 
+                {
                     2, new List<List<long>>
                     {
                         new List<long> { 2 },
@@ -237,8 +384,8 @@ namespace IntegerPartitions.Specs
                 }
             };
             input = 3;
-            parts = new List<List<long>> 
-            { 
+            parts = new List<List<long>>
+            {
                 new List<long>{ 2, 1 },
             };
             expect = new List<List<long>>
@@ -254,7 +401,7 @@ namespace IntegerPartitions.Specs
         It Should_Partition_Each_Element = () =>
         {
             answer.Count.ShouldEqual(expect.Count);
-            for(var i=0; i<expect.Count; i++)
+            for (var i = 0; i < expect.Count; i++)
             {
                 answer[i].Count.ShouldEqual(expect[i].Count);
                 for (var j = 0; j < expect[i].Count; j++)
@@ -294,7 +441,7 @@ namespace IntegerPartitions.Specs
                 }
             };
             input = 4;
-            parts = new List<List<long>> 
+            parts = new List<List<long>>
             {
                 new List<long>{ 3,1 },
                 new List<long>{ 2,2 }

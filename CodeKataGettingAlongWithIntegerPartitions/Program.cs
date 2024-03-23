@@ -33,7 +33,7 @@ if(getPartitions)
     {
         Console.WriteLine("What integer would you like to partition?");
         var num = Console.ReadLine();
-        var partitions = new List<List<long>>();
+        var partitions = new Dictionary<long,List<List<long>>>();
         if(int.TryParse(num, out var integer))
         {
             partitions = IntPart.Partition(integer);
@@ -44,15 +44,19 @@ if(getPartitions)
         }
         if(partitions?.Count > 0)
         {
-            for(var i=0; i<partitions.Count; i++)
+            for(var i=1; i<=partitions.Count; i++)
             {
-                Console.WriteLine();
+                Console.WriteLine(i+":");
                 for(var j=0; j < partitions[i].Count; j++)
                 {
-                    Console.Write(partitions[i][j] + ", ");
+                    for(var k=0; k < partitions[i][j].Count; k++)
+                    {
+                        Console.Write(partitions[i][j][k] + ",");
+                    }
+                    Console.WriteLine();
                 }
+                Console.WriteLine();
             }
-            Console.WriteLine();
         }
     } while (keepGoing);
 }
